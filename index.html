@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>退勤管理</title>
+</head>
+<body>
+  <h1>退勤記録</h1>
+  <button onclick="recordTime()">退勤する</button>
+
+  <p id="result"></p>
+
+  <script>
+    function recordTime() {
+      const now = new Date();
+      document.getElementById("result").innerText =
+        "退勤時間：" + now.toLocaleString();
+    }
+  </script>
+</body>
+</html>
