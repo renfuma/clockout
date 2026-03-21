@@ -6,9 +6,8 @@
 </head>
 <body>
   <h1>退勤記録</h1>
-  <button onclick="recordTime()">退勤する</button>
 
-  <p id="result"></p>
+  <p id="result">記録中...</p>
 
   <script>
     function recordTime() {
@@ -16,6 +15,9 @@
       document.getElementById("result").innerText =
         "退勤時間：" + now.toLocaleString();
     }
+
+    // ページ開いた瞬間に実行
+    window.onload = recordTime;
   </script>
 </body>
 </html>
