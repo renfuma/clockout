@@ -14,14 +14,7 @@
     const name = "Heero";
     const type = "out";
 
-    fetch(gasUrl + "?name=" + encodeURIComponent(name) + "&type=" + encodeURIComponent(type))
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("msg").textContent = "退勤を記録しました";
-      })
-      .catch(error => {
-        document.getElementById("msg").textContent = "記録に失敗しました";
-      });
+    window.location.href = url + "?name=Heero&type=out";
   </script>
 </body>
 </html>
