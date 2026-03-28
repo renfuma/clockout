@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>退勤管理</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>退勤記録</title>
 </head>
 <body>
-  <h1>退勤記録</h1>
-
-  <p id="result">記録中...</p>
+  <h1>退勤記録中...</h1>
+  <p id="msg">少し待ってください</p>
 
   <script>
-    function recordTime() {
-      const now = new Date();
-      document.getElementById("result").innerText =
-        "退勤時間：" + now.toLocaleString();
-    }
+    const gasUrl = "https://script.google.com/macros/s/AKfycbwc7TSMUBGoijhro1xyFZ-mH9dg2B4_94Yv_zyQeef07CSofAEC-L9iaC6qqF2jMTVaOA/exec";
+    const name = "Heero";
+    const type = "out";
 
-    // ページ開いた瞬間に実行
-    window.onload = recordTime;
-  
-setTimeout(() => {
-  history.back();
-}, 2000); // 2秒後に戻る
+    fetch(gasUrl + "?name=" + encodeURIComponent(name) + "&type=" + encodeURIComponent(type))
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("msg").textContent = "退勤を記録しました";
+      })
+      .catch(error => {
+        document.getElementById("msg").textContent = "記録に失敗しました";
+      });
   </script>
 </body>
 </html>
